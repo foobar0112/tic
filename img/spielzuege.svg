@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="spielzuege.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4651"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker4940"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4938"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4639"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4633"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="160.36831"
+     inkscape:cy="994.93797"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1410"
+     inkscape:window-x="0"
+     inkscape:window-y="1110"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="25.684601"
+       y="15.257828"
+       id="text3704"><tspan
+         sodipodi:role="line"
+         id="tspan3702"
+         x="25.684601"
+         y="15.257828"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">alle denkbaren Spielzüge</tspan></text>
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       id="path3708"
+       cx="53.868172"
+       cy="43.294395"
+       rx="40.357697"
+       ry="22.370459" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="30.285885"
+       y="31.485411"
+       id="text3704-3"><tspan
+         sodipodi:role="line"
+         id="tspan3702-6"
+         x="30.285885"
+         y="31.485411"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">R = legale Spielzüge in S</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="76.483421"
+       y="75.103806"
+       id="text3704-7"><tspan
+         sodipodi:role="line"
+         id="tspan3702-5"
+         x="76.483421"
+         y="75.103806"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">induzieren</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="31.795956"
+       y="47.093952"
+       id="text3704-35"><tspan
+         sodipodi:role="line"
+         id="tspan3702-62"
+         x="31.795956"
+         y="47.093952"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">anwendbar auf fixes k ∈ K</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="116.93466"
+       y="56.488472"
+       id="text3704-9"
+       inkscape:transform-center-x="5.2117558"
+       inkscape:transform-center-y="-31.40417"><tspan
+         sodipodi:role="line"
+         id="tspan3702-1"
+         x="116.93466"
+         y="56.488472"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">zulässige Konfigurationen K</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="107.99025"
+       y="52.221199"
+       id="text3754"><tspan
+         sodipodi:role="line"
+         id="tspan3752"
+         x="107.99025"
+         y="61.584969"
+         style="stroke-width:0.26458332"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="110.69591"
+       y="39.657509"
+       id="text3704-9-2"
+       inkscape:transform-center-x="5.2117558"
+       inkscape:transform-center-y="-31.40417"><tspan
+         sodipodi:role="line"
+         id="tspan3702-1-7"
+         x="110.69591"
+         y="39.657509"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">alle denkbaren Konfigurationen</tspan></text>
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       id="path3708-0"
+       ry="12.561666"
+       rx="32.473248"
+       cy="47.169807"
+       cx="56.607689" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       id="path3791"
+       cx="52.184372"
+       cy="35.744034"
+       rx="47.600704"
+       ry="34.531227" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       id="path3708-0-9"
+       ry="12.561666"
+       rx="32.473251"
+       cy="55.655621"
+       cx="144.33891" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       id="path3708-3"
+       cx="141.06485"
+       cy="50.13649"
+       rx="40.3577"
+       ry="22.370459" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:0.265, 0.26500000000000001;stroke-dashoffset:0;marker-end:url(#Arrow2Lend)"
+       d="m 59.681286,62.577896 c 3.781339,13.981233 50.539524,6.704812 60.242554,-0.187088"
+       id="path3823"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>

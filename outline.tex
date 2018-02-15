@@ -1,0 +1,627 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\date{}
+
+\begin{document}
+
+\hypertarget{header-n0}{%
+\section{Tic-Tac-Toe like a Pro}\label{header-n0}}
+
+\textbf{Vortrag zum Thema Spielbäume}
+
+\hypertarget{header-n20}{%
+\subsection{Agenda}\label{header-n20}}
+
+\begin{itemize}
+\item
+  Motivation
+\item
+  Terminologie
+\item
+  MinMax
+\item
+  AlphaBeta
+\end{itemize}
+
+\hypertarget{header-n27}{%
+\subsection{Motivation}\label{header-n27}}
+
+\hypertarget{header-n34}{%
+\subsubsection{Donald Michies "Menace"}\label{header-n34}}
+
+\begin{itemize}
+\item
+  1963
+\item
+  \ldots{}
+\end{itemize}
+
+\hypertarget{header-n1199}{%
+\subsubsection{Ziel dieses Vortrages}\label{header-n1199}}
+
+\begin{itemize}
+\item
+  Verständnis für formale Betrachtung von Spielen
+\item
+  Schritte des MinMax-Algorithmus nachvollziehen können (in der Lage
+  sein es zu implementieren)
+\item
+  Notwendigkeit der Alpha-Beta-Kürzung verstehen und anpassung des
+  Algorithmusses verstehen
+\item
+  weitere?
+\end{itemize}
+
+\hypertarget{header-n64}{%
+\subsection{Terminologie}\label{header-n64}}
+
+\hypertarget{header-n73}{%
+\subsubsection{Einordnung "Spiel"}\label{header-n73}}
+
+\begin{itemize}
+\item
+  {[}Grafik Spiele{]}
+\item
+  Definition: Spiel S ≔ (R, a, F )
+
+  \begin{itemize}
+  \item
+    R Menge legaler Spielzüge
+  \item
+    k0 ∈ K Anfangskonfiguration
+  \item
+    F ⊂ K Menge der Endkonfigurationen
+  \item
+    zwei Spieler: der Max und der Min
+  \end{itemize}
+\item
+  K Menge aller zulässigen Konfigurationen
+\end{itemize}
+
+\hypertarget{header-n203}{%
+\subsubsection{Spielzüge, Folgekonfiguration}\label{header-n203}}
+
+\begin{itemize}
+\item
+  R ≔ \{r ∶ u → v ∣ u, v ∈ K, r legal \}
+
+  \begin{itemize}
+  \item
+    wenn v = r(u) , dann heißt v Folgekonfiguration von u (bezüglich r )
+  \item
+    analog: u Elternkonfiguration von v (bezüglich r )
+  \end{itemize}
+\item
+  R k ≔ \{r ∈ R ∣ r anwendbar auf k\}
+\item
+  Menge der Folgekonfigurationen N (k) ≔ \{r(k) ∣ r ∈ R k \} ⊆ K
+
+  \begin{itemize}
+  \item
+    N(k f ) = ∅, k f ∈ F
+  \end{itemize}
+\item
+  K induktiv über Folgekonfigurationen definierbar: (1) a ∈ K (2) ∀k ∈ K
+  ∶ N(k) ⊂ K
+\item
+  {[}Grafik Spielzüge{]}
+\end{itemize}
+
+\hypertarget{header-n305}{%
+\subsubsection{Spielbaum (ehemals Spielgraph)}\label{header-n305}}
+
+\begin{itemize}
+\item
+  Spielgraph ist gerichteter Graph G S ≔ (V , E)
+
+  \begin{itemize}
+  \item
+    Knoten V = K
+  \item
+    Kanten E = ⋃ \{(u, v) ∣ v ∈ N(u)\}
+  \end{itemize}
+\item
+  G ist Baum mit Wurzel a , Blättern F
+\item
+  Spielverlauf mit n Zügen ist Pfad p subsequenter Folgekonfigurationen
+
+  \begin{itemize}
+  \item
+    p = (k 0 = a, k 1 , ... , k n ∈ F )
+  \end{itemize}
+\item
+  theoretisches Hilfskonstrukt
+\item
+  {[}Grafik: TicTacToe Spielgraph{]}
+\end{itemize}
+
+\hypertarget{header-n382}{%
+\subsubsection{Suchbaum (ehemals Spielbaum)}\label{header-n382}}
+
+\begin{itemize}
+\item
+  Spielbaum ist gerichteter Graph B S ≔ (V , E, l, k 0 )
+
+  \begin{itemize}
+  \item
+    Tiefe l ∈ N, l ≥ 1
+  \item
+    Wurzelknoten k 0 ∈ K
+  \item
+    Knoten V = \{v = (k 0 , ... , k n ) ∣ ∀k i ∈ v ∶ ∃r ∈ R k ∶ k i =
+    r(k i−1), k i ∈ K, n ≤ l\}
+
+    \begin{itemize}
+    \item
+      entspricht (Teil-)Pfaden der maximalen Länge l , ausgehend von k 0
+      im Spielgraph
+    \end{itemize}
+  \item
+    Kanten E = \{((k 0 , ... , k i ), (k 0 , ... , k i , k i+1 )) ∣ ∃r ∈
+    R k ∶ r(k i) = k i+1 \}
+  \end{itemize}
+\item
+  praktisch in Implementierung genutzt
+\end{itemize}
+
+\hypertarget{header-n461}{%
+\subsection{MinMax}\label{header-n461}}
+
+\hypertarget{header-n464}{%
+\subsubsection{Geschichte}\label{header-n464}}
+
+\begin{itemize}
+\item
+  populär als Suchalgorithmus für Spielstrategie in Schachprogrammen
+\item
+  1912 erstmals von Ernst Zermelo erwähnt
+\item
+  1940er Bedeutung betont (Shannon, Turing)
+\end{itemize}
+
+\hypertarget{header-n490}{%
+\subsubsection{wir brauchen\ldots{}}\label{header-n490}}
+
+\begin{itemize}
+\item
+  Nutzenfunktion f: F → N, die Endkonfigurationen mit einer Zahl
+  bewertet (der Einfachheut natürliche Zahlen)
+\item
+  zwei Typen von Knoten: Min- und Max- je nach dem wer am Zug ist, je
+  nach dem ob Minimiert oder Maximiert werden soll
+
+  \begin{itemize}
+  \item
+    {[}Grafik: Bildsprache Min-/ Max-Knoten{]}
+  \item
+    bei uns: alterniert mit jedem Halbzug
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{header-n660}{%
+\subsubsection{Algo}\label{header-n660}}
+
+\begin{itemize}
+\item
+  jedem Knoten wird ein MinMax-Wert zugeordnet
+
+  \begin{itemize}
+  \item
+    entspricht Nutzen dieser Konfiguration für Max
+  \item
+    der MinMax-Wert eines Knoten ergibt sich immer aus seinen Kindern je
+    nach dem, ob es ein Min- oder Max-Knoten gibt, bzw. entspricht f(k),
+    wenn k Endkonf.
+
+    \begin{itemize}
+    \item
+      Min-Knoten: Annahme: Min ist an der Reihe und spielt optimal, d.h.
+      Annahme 2: bester Zug für Min ist schlechtester für Max →
+      kleinster Wert für Max anzunehmen (so zu sagen worst case)
+    \item
+      Max-Knoten: Max ist dran und nimmt besten Zug → höchster Wert
+    \end{itemize}
+  \item
+    schließlich: es wird Zug gewählt, der Max' Nutzen maximiert, bzw,
+    der Zug zum Kindknoten mit dem selben Wert, wie dem aktuellen
+    Wurzelknoten
+  \end{itemize}
+\item
+  {[}Formel: MinMax, S. 209{]}
+\item
+  {[}Grafik: MinMax TicTacToe{]}
+\item
+  {[}Grafik: abstrakter: dreieckige Min-/Max-Knoten{]}
+\item
+  Rekursion
+
+  \begin{itemize}
+  \item
+    steigt Spielpfade entlang des Baumes bis zu Blättern ab
+  \item
+    Knoten werden quasi inialisiert: -∞ für Max- und ∞ für Min-Knoten
+  \item
+    entspricht vollständiger Tiefensuche
+  \item
+    Aufstieg: tatsächliche Werte werden, basierend auf Kindern
+    gespeichert
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{header-n1111}{%
+\subsubsection{Komplexität}\label{header-n1111}}
+
+\begin{itemize}
+\item
+  m maximale Tiefe des Baumes
+\item
+  b Verzweigungsgrad an jedem Knoten (mögliche Züge)
+\item
+  Zeit: O(b\^{}m)
+\item
+  Speicher: O(bm) wenn alles gleiczeitig gehalten wird, O(m), wenn
+  nacheinander, d.h. für einen Pfad
+\item
+  Problem: Baumsuche: Anzahl möglicher Spielstände wächst exponentiell
+  zur Anzahl Züge, real nicht brauchbar
+\end{itemize}
+
+\hypertarget{header-n526}{%
+\subsection{Alpha-Beta}\label{header-n526}}
+
+\begin{itemize}
+\item
+  Pruning = Kürzung, um weniger Konfigurationen zu durchsuchen
+
+  \begin{itemize}
+  \item
+    gibt das selbe Ergebnis wie std-Min-Max zurück
+  \item
+    Konfigurationen, die Entscheidung nicht beeinflussen, werden nicht
+    betrachtet
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{header-n780}{%
+\subsubsection{Geschichte}\label{header-n780}}
+
+\begin{itemize}
+\item
+  Optimierung von Minmax
+\item
+  1956 in Dartmouth vorgestellt (McCarthy)
+\item
+  1961 erstmals in Schachprogramm eingesetzt
+\item
+  1975 Korrektheit bewiesen (Knuth, Moore)
+\item
+  weitere Verbesserungen u. Varianten folgten
+\end{itemize}
+
+\hypertarget{header-n943}{%
+\subsubsection{Wie brauchen\ldots{}}\label{header-n943}}
+
+\begin{itemize}
+\item
+  da tiefensuche, stats pfadweise Betrachtung, pro Pfad muss
+  alpha/beta-Par gehalten werden
+
+  \begin{itemize}
+  \item
+    praktisch bekommet jeder Knoten einen alpha/ beta Wert
+  \item
+    alpha: bisher bester wert im pfad
+  \item
+    beta: bisher schlechtester wert im pfad
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{header-n1257}{%
+\subsubsection{Algo}\label{header-n1257}}
+
+\begin{itemize}
+\item
+  alpha und beta werden nach jeder untersuchten konfiguration
+  aktualisert
+
+  \begin{itemize}
+  \item
+    initial wird alpha = -ue und beta = +ue gesetzt iwe minmax
+  \item
+    alpha wird max-knoten maximiert: max(a-1, v)
+  \item
+    beta wird an minknoten minimiert: min(b-1,v)
+  \end{itemize}
+\item
+  kinder werden gekürzt = rekursion vor erreichen der endkonf.
+  terminiert
+
+  \begin{itemize}
+  \item
+    an Max-Knoten k: α-Cut: es wird der größte Wert der Kinder gesucht
+
+    \begin{itemize}
+    \item
+      sobald β eines Kindes kleiner gleich als α des k
+    \end{itemize}
+  \item
+    an Min-Noten k: β-Cut: es wird der kleinste Wert der Kinder gesucht
+
+    \begin{itemize}
+    \item
+      sobald α eines Kindes größer gleich als β des k
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{header-n989}{%
+\subsubsection{Komplexität}\label{header-n989}}
+
+\begin{itemize}
+\item
+  Minmax: O(b\^{}m)
+\item
+  AlphaBetta O(b\^{}(m/2) bei optimaler Sortierung (Heuristik)
+
+  \begin{itemize}
+  \item
+    d.h. in gleicher zeit doppelt so tiefen baum
+  \item
+    theoretisches limit, wenn immer sofort gekürzt werden kann
+  \end{itemize}
+\item
+  Zufällige Sortierung der Kinde: etwa O(b\^{}(3/4m))
+\end{itemize}
+
+\hypertarget{header-n1433}{%
+\subsection{unvollständige Echtzeitentscheidung}\label{header-n1433}}
+
+\hypertarget{header-n1436}{%
+\subsubsection{verbesserung}\label{header-n1436}}
+
+\begin{itemize}
+\item
+  kriteirum, wann nicht mehr weiter expandieren
+\item
+  zusätzlich zu Nutzenfunktion für Endkonf.: Bewertungsfunktion für
+  Konfs, die nicht Endkonf sind (Heuristik)
+
+  \begin{itemize}
+  \item
+    vergleichbar mit Kostenschätzung bei A* Suche
+  \end{itemize}
+\item
+  mit alphabeta kombinierbar
+\item
+  stärke des agenten hängt von genauigkeit der Heuristik und bewertung
+  des nutztens einer knotenexpansion ab
+\end{itemize}
+
+\hypertarget{header-n1470}{%
+\subsubsection{Heuristik}\label{header-n1470}}
+
+\begin{itemize}
+\item
+  schätzt den nutzen für spieler in bestimmter konfiguration ab
+\item
+  anforderungen
+
+  \begin{itemize}
+  \item
+    muss mindestens gleiche ordnung, wie nutzenfunktion erzeugen
+  \item
+    muss schnell sein
+  \item
+    sollte bei nicht endzuständen nah an tatsächlichen chancen sein
+    (chance, auch wenn kein zufallsspiel da information durch
+    tiefenbeschränkung unvollständig wird)
+  \end{itemize}
+\item
+  setzt sich aus verschiedenen merkmalen des zustands zusammen, die sich
+  numerisch beschreiben lassen
+\item
+  {[}bsp tictactoe{]}
+\end{itemize}
+
+\hypertarget{header-n1544}{%
+\subsubsection{wann abbrechen}\label{header-n1544}}
+
+\begin{itemize}
+\item
+  immer wenn endkonf erreicht ist natürlich
+\item
+  bspw. feste tiefe → problematisch (bsp. schach)
+
+  \begin{itemize}
+  \item
+    mindest suchtiefe, dann abbrechen, wenn bewertung ruht
+  \end{itemize}
+\item
+  metaschließen: wann lohnt es sich eine berechnung anzustellen?
+\end{itemize}
+
+\hypertarget{header-n792}{%
+\subsection{Ausblick}\label{header-n792}}
+
+\begin{itemize}
+\item
+  Min spielt nicht optimal
+
+  \begin{itemize}
+  \item
+    MinMax nur beste Strategie, wenn Min wirklich optimal spielt
+  \item
+    wenn nicht: dann noch besser für Max
+  \item
+    aber: es gibt dann ggf. noch bessere Strategien
+  \end{itemize}
+\item
+  Nicht-nullsummenspiel
+
+  \begin{itemize}
+  \item
+    jeder spieler hat eigene nutzenfunktion (die beiden bekannt ist)
+  \end{itemize}
+\item
+  mehr als 2 spieler
+
+  \begin{itemize}
+  \item
+    nicht Min-/Max-Halbzüge, sondern A,B,C,\ldots{}
+  \item
+    nicht ein MinMaxVal sondern Vektor mit Max-Werte jedes Spielers
+  \item
+    warum kein vektor bei 2?
+
+    \begin{itemize}
+    \item
+      nullsummenspiel gewinn ist verlust des anderen
+    \item
+      negamax
+    \end{itemize}
+  \item
+    Problem: Spielstrategie mit Allianzen
+  \end{itemize}
+\item
+  zugreihenfolge
+
+  \begin{itemize}
+  \item
+    vorsortieren und Killerzüge finden ("Killerzugheuristik")
+  \item
+    dynamisch: zuerst züge probieren, die vorher gut waren
+
+    \begin{itemize}
+    \item
+      situationen können wieder auftreten → hashtabelle (allerdings für
+      alle knoten wiederum zu aufwendig) für interessante konf.s
+    \end{itemize}
+  \end{itemize}
+\item
+  verbesserung mit iterativer tiefensuche
+
+  \begin{itemize}
+  \item
+    hilft bei sortierung der zugreihenfolge
+  \item
+    begrenzte zeit möglichst gut ausnutzen
+  \end{itemize}
+\item
+  Spiele mit Zufall
+
+  \begin{itemize}
+  \item
+    dritte art knoten: zufallsknoten
+  \item
+    erwartungswert statt minmax-wert
+  \end{itemize}
+\item
+  "Maximin" in der Philosophie
+
+  \begin{itemize}
+  \item
+    US-amerikanischer Philosoph: John Rawles: "A Theory of Justice",
+    1971, belebte politische Philosophie wieder
+  \item
+    Gedankenexperiment zur Schaffung eines neuen Gesellschaftsvertrages
+
+    \begin{itemize}
+    \item
+      Vertragspartner befinden sich in hypotetischem Urzustand hinter
+      Schleier des Nichtwissens und entscheiden pber
+      Gerechtigkeitsprinzipien
+    \item
+      wissen nicht, wo/wer sie sein werden
+    \end{itemize}
+  \item
+    Grundsätze der Gerechtigkeit
+  \item
+    1) Jeder Mensch hat das gleiche Recht auf das umfangreichste
+    Gesamtsystem gleicher Grundfreiheiten, das für alle möglich ist.
+  \item
+    2) Soziale und wirtschaftliche Ungleichheiten müssen folgendermaßen
+    beschaffen sein:
+
+    \begin{itemize}
+    \item
+      (a) sie müssen unter der Einschränkung des gerechten
+      Spargrundsatzes den am wenigsten Begünstigten den größtmöglichen
+      Vorteil bieten, und
+
+      (b) sie müssen mit Ämtern und Positionen verbunden sein, die allen
+      gemäß fairer Chancengleichheit offen stehen.
+    \end{itemize}
+  \item
+    Vorrang von 1 vor 2 sowie ein Vorrang des Prinzips fairer
+    Chancengleichheit (b) vor dem Differenzprinzip (a)
+  \item
+    MaxiMin bedeutet nun, dass die entscheidende Person sich für die
+    Alternative entscheidet, die das minimale denkbare Ergebnis
+    maximiert. Rawls wählt damit das konservative Prinzip der
+    Risikominimierung. (Risikoaversion)
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{header-n597}{%
+\subsection{Anhang}\label{header-n597}}
+
+\begin{itemize}
+\item
+  Github-Link
+\item
+  Quellen
+\end{itemize}
+
+\end{document}

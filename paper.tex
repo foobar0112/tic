@@ -1,0 +1,161 @@
+\documentclass[a4paper,twoside]{scrartcl}
+
+\usepackage[ngerman]{babel}
+\usepackage[final]{microtype}
+\usepackage[T1]{fontenc}
+\linespread{1.05}
+
+\usepackage[inner=3cm,outer=2cm,top=3cm,bottom=3cm,foot=1.75cm]{geometry}
+\setlength{\columnsep}{20pt}
+
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
+\let\emptyset\varnothing
+
+\usepackage{url}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+\setlist{nolistsep}
+\setlist[itemize]{noitemsep}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+
+\usepackage{abstract}
+\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont\small}
+
+\usepackage{titlesec}
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\roman{subsection}}
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}
+
+\usepackage{hyperref}
+\hypersetup{pdfborder={0 0 0},breaklinks=true}
+
+\setlength{\emergencystretch}{3em}
+\interfootnotelinepenalty=10000
+
+\usepackage{titling}
+\setlength{\droptitle}{-2\baselineskip}
+\pretitle{\begin{center}\huge\bfseries}
+\posttitle{\end{center}}
+\renewcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\Large\bfseries#1\end{center}
+    \vskip0.5em}%
+}
+
+\usepackage[automark]{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\rohead[]{\textsc{\leftmark}}
+\lehead[]{\textsc{\leftmark}}
+\rofoot[\pagemark]{\pagemark}
+\lefoot[\pagemark]{\pagemark}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace{\baselineskip}
+  \begin{abstract}
+  \noindent Was sind Spielbäume und wozu können sie verwendet werden? In dieser Ausarbeitung wird das Konzept des Spielbaumes formal eingeführt und anhand des Spiels \e{Tic-Tac-Toe} beispielhaft erläutert. Mit der Erklärung des Alpha-Beta-Prunings als Optimierung des Minmax-Verfahrens und anderer Heuristiken wird eine Anwendung von Spielbäumen illustriert.
+  \end{abstract}
+  \vspace{\baselineskip}
+}
+
+\newcommand\e[1]{\begin{em}#1\end{em}}
+\newcommand\q[1]{\glqq #1\grqq}
+\newcommand\sq[1]{\glq #1\grq}
+\newcommand\qq[1]{\glqq\e{#1}\grqq}
+\newcommand\fnm[1]{\footnotemark[#1]\addtocounter{footnote}{1}}
+\newcommand\g[2]{%
+  \begin{figure}[!ht]
+  \centering
+  \includegraphics{#1}
+  \caption{#2}
+  \end{figure}}
+\newcommand\todo[1]{\colorbox{yellow}{#1}}
+
+\title{Spielbäume\\{\large oder}\\Tic-Tac-Toe like a Pro}
+\def\titlehead{Spielbäume}
+\subtitle{Proseminar Theoretische Informatik}
+\author{Joschka Heinrich\thanks{joschka.heinrich@tu-dresden.de}, TU Dresden}
+
+\begin{document}
+\maketitle
+
+\section{Einführung}
+\todo{Motivation. Überblick Aufbau Text.}
+
+\section{Spielbäume}
+Um im Folgenden mit Spielbäumen arbeiten zu können, führen wir das Konzept zunächst formal ein und definieren dazu unter anderem den Begriff des \e{Spiels}, der \e{Konfiguration} und des \e{Spielbaums} selbst.
+
+\subsection{Definition}
+
+\todo{Formeln an Präsentation anpassen, $R_k, E, F, \dots$}
+
+Alle folgenden Betrachtungen nehmen wir aus der Perspektive eines gewinnorientierten Spielers $A$ vor, der sich einer Anzahl Gegner gegenüber sieht. Es ist also das Ziel, Züge für $A$ so zu finden, dass dessen Gewinn maximiert, bzw. der Gewinn der Gegner minimiert wird, wobei wir davon ausgehen, dass alle Gegner optimale Entscheidungen treffen. Wir vereinfachen die Betrachtung von Spielen, indem wir uns auf solche ohne Zufallskomponente, d.h. reine Strategiespiele mit vollkommener Information und Spiele mit zwei Kontrahenten---Spieler $A$ und Spieler $B$---beschränken. Mit \q{der Gegner} ist also im Folgenden stets Spieler $B$ gemeint. 
+
+Ein \textbf{Spiel} $S = (R,a,E)$ ist nun durch Regeln, in Form einer endlichen Menge von legalen Spielzügen $R$, eine Anfangskonfiguration $a \in K$ und eine Reihe möglicher Endkonfigurationen $E \subset K$ gegeben, mit $K$, der Menge aller \e{zulässigen} Konfigurationen. Eine \textbf{Konfiguration} $k \in K$ repräsentiert dabei einen möglichen Zustand des Spieles, bestehend aus einer Beschreibung wiederum der Zustände aller relevanten Spielelemente (bspw. die Position der Zeichen auf dem Tic-Tac-Toe-Feld) inklussive des Spielers, der als nächster an der Reihe ist (bei uns entweder $A$ oder $B$).
+
+In Abgrenzung zur Menge der \e{legalen} Spielzüge können wir uns beliebige andere Spielzüge vorstellen, die zwar möglich, allerdings in dem betrachteten Spiel nicht erlaubt sind. Analog dazu sind über $K$ hinaus weitere Konfigurationen denkbar, die allerdings nicht zulässig sind, d.h. in einem regelkonformen Spiel niemals auftreten können. Durch Anwenden eines legalen Spielzuges auf eine Konfiguration gelangen wir zu einer neuen Konfiguration. Ein legaler Spielzug kann also als eine Funktionen $r:K \to K$ verstanden werden. Seien $u,v \in K$ Konfigurationen und $r \in R$ ein legaler Spielzug, mit $v = r(u)$, dann heißt $v$ \textbf{Folgekonfiguration} von $u$ (bezüglich $r$) und $u$ \textbf{Elternkonfiguration} von $v$ (bezüglich $r$). 
+
+Wenn das Anwenden eines Spielzuges zu einer neuen Konfiguration führt, also $u \neq v$ gilt, dann heißt $r$ \e{anwendbar} auf u.\footnote{Das bedeutet nicht notwendigerweise, dass sich die Konfiguration der Spielelemente verändert. Zwei Spielkonfigurationen können sich auch darin unterscheiden, welcher Spieler an der Reihe ist.} Gibt es mehrere auf eine Konfiguration $k \in K$ anwendbare Spielzüge, erhalten wir eine Menge von Folgekonfigurationen $F(k) \subset K$ mit $F(k) = \{r(k) \mid r \in R,~r \textrm{ anwendbar auf } k\}$. Auf eine Endkonfiguration $k_e \in E$ sind keine Spielzüge anwendbar, da das Spiel mit Erreichen einer dieser Konfigurationen als beendet gilt: $F(k_e) = \emptyset$.
+
+Die Menge $K$ können wir nun induktiv über die Folgekonfigurationen definieren: 
+
+\begin{itemize}
+	\item $a$ ist Element von $K$.
+	\item Wenn $k \in K$, dann auch alle $k' \in F(k)$.
+\end{itemize}
+
+Alle zulässigen Konfigurationen lassen sich also aus der Anfangskonfiguration und den legalen Spielzügen ableiten. Zu jeder Konfiguration $k \in K \setminus E$ gehört eindeutig eine Menge von Folgekonfigurationen $F(k)$ und zu jeder Konfiguration $k \in K \setminus a$ eine Elternkonfiguration $k'$. Diese Beziehungen können durch einen Graphen anschaulich dargestellt werden.
+
+Ein \textbf{Spielgraph} ist ein gerichteter Graph $G(V,E)$ mit: 
+
+\begin{itemize}
+	\item Knoten $V = K$ und
+	\item Kanten $E = \bigcup\limits_{u \in K}\{(u,v) \mid v \in F(u)\}$
+\end{itemize}
+
+Es ergibt sich insbesondere mit dem Graphen $G$ ein Baum, mit $a$ als Wurzel und $E$ als Blätter. So kann über den Graphen entlang legaler Spielzüge traversiert werden und bspw. ein kompletter Spielverlauf mit $n$ Zügen als Pfad $(k_0 = a,k_1,\dots,k_n \in E)$ subsequenter Folgekonfigurationen dargestellt werden.
+
+%TODO: Ist das nötig, zu fordern?
+Als zusätzliche Vereinfachung schließen wir aus, dass eine über $R$ aus $a$ generierte Konfiguration durch erneutes Anwenden legaler Spielzüge wieder erreicht werden kann, dass wir also im weiteren Spielverlauf zu einer Situation gelangen, die bereits aufgetreten ist.\footnote{Diese Einschränkung schließt viele Spiele wie bspw. Schach von der folgenden Betrachtung aus, da dort durch legale Spielzüge Konfigurationen reproduziert werden können. Viele der Aussagen lassen sich dennoch auch auf diese Art Spiele übertragen.} Daraus folg unmittelbar, dass $G$ zyklenfrei ist.
+
+\subsection{Am Beispiel Tic-Tac-Toe}
+
+Um obige Definitionen zu veranschaulichen, werden wir sie nun auf das Spiel Tic-Tac-Toe anwenden. Das Tic-Tac-Toe-Spielfeld besteht aus einem $3 \times 3$-Raster mit neun Feldern in die zwei Spieler abwechelnd ihre Zeichen setzen. Dies sind üblicherweise \q{o} bzw. \q{x}, daher werden wir die Spieler im Folgenden nicht mit A und B, sondern als \q{Spieler O} und \q{Spieler X} bezeichnen.
+
+Ziel jedes Spielers ist es, drei seiner Zeichen nebeneinander zu setzen, d.h. in einer Reihe, Spalte oder Diagonale, und gleichzeitig zu verhindern, dass der Gegner seine Zeichen in dieser Weise setzen kann. Das Spiel endet entweder, wenn einer der beiden Spieler gewinnt, sobald er dieses Ziel erreicht, oder wenn kein Zug mehr möglich ist, da alle neun Felder belegt sind, dann geht das Spiel unentschieden aus.
+
+\g{tic.pdf}{Ein beispielhafter Spielbaum (sogar mit Farben!)}
+
+\todo{Anwendung der Definition.}
+
+\section{Zugplanung}
+\todo{Kapitel in einem Satz.}
+
+\subsection{Minmax-Verfahren}
+
+
+
+\subsection{Alpha-Beta-Pruning}
+
+\section{Zusammenfassung}
+\todo{Schlussfolgerung. Ausblick. Anwendbarkeit, Zufallsspiele}
+
+\begin{thebibliography}{99}
+
+\bibitem[Klüppelholz, 2016]{K:2016} Sascha Klüppelholz.
+\newblock Entwurfs- und Analysemethoden für Algorithmen -- Skript zur Vorlesung SS 2016
+ 
+\end{thebibliography}
+
+\end{document}

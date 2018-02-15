@@ -1,0 +1,59 @@
+\documentclass[tikz]{standalone}
+\usepackage{forest}
+\usepackage{calc}
+\usepackage{fontspec}
+\setmainfont{Univers LT 45 Light}
+
+\definecolor{a}{HTML}{f47969}
+\definecolor{b}{HTML}{f9efcf}
+\definecolor{c}{HTML}{b3c3c9}
+\definecolor{d}{HTML}{776a77}
+\definecolor{e}{HTML}{fbd1a2}
+
+\usetikzlibrary{shapes.geometric}
+\forestset{%
+  default preamble={
+    for tree={
+      circle,
+      draw,
+      inner sep=0pt,
+      minimum size=.5cm,
+      edge=-,
+      anchor=north,
+      fill=white
+    }
+  },
+  max/.style={isosceles triangle,
+                  draw,
+                  shape border rotate=90,
+                  minimum size=1cm,
+                  child anchor=apex,
+                  anchor=apex},
+  min/.style={isosceles triangle,
+                  draw,
+                  shape border rotate=270,
+                  minimum size=1cm,
+                  child anchor=north,
+                  anchor=north}
+}
+\begin{document}
+\begin{forest}
+[$3 \mid +\infty$, max, fill=a
+ [$3 \mid 3$, min, fill=a
+  [3, max, fill=c]
+  [11, max, fill=c]
+  [8, max, fill=a]
+ ]
+ [, min
+  [, max]
+  [, max]
+  [, max]
+ ]
+ [, min
+  [, max]
+  [, max]
+  [, max]
+ ]
+]
+\end{forest}
+\end{document}

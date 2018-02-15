@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="spiel.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath28">
+      <g
+         id="use30"
+         inkscape:label="Clip">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 32.505952,48.5279 48.853422,2.504094"
+           id="path325"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 81.359374,51.031994 32.505952,53.488831 V 48.5279"
+           id="path327"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath28-3">
+      <g
+         id="use30-6"
+         inkscape:label="Clip">
+        <g
+           transform="translate(8.0180859)"
+           clip-path="url(#clipPath83)"
+           id="g287">
+          <g
+             id="g285"
+             inkscape:label="Clip">
+            <path
+               sodipodi:nodetypes="cc"
+               inkscape:connector-curvature="0"
+               id="path281"
+               d="m 32.505952,48.5279 27.939581,2.527712"
+               style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+            <path
+               sodipodi:nodetypes="ccc"
+               inkscape:connector-curvature="0"
+               id="path283"
+               d="M 60.445533,51.055612 32.505952,53.488831 V 48.5279"
+               style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          </g>
+        </g>
+        <text
+           transform="rotate(-90)"
+           id="text291"
+           y="49.250141"
+           x="-42.415668"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             id="tspan289"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             y="49.250141"
+             x="-42.415668"
+             sodipodi:role="line">Tic-Tac-Toe</tspan></text>
+        <text
+           transform="rotate(-90)"
+           id="text295"
+           y="47.506546"
+           x="-18.150183"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             id="tspan293"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             y="47.506546"
+             x="-18.150183"
+             sodipodi:role="line">Mensch ärgere</tspan></text>
+        <text
+           transform="rotate(-90)"
+           id="text299"
+           y="62.963818"
+           x="18.136993"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             style="stroke-width:0.26458332"
+             y="72.327583"
+             x="18.136993"
+             id="tspan297"
+             sodipodi:role="line"></tspan></text>
+        <text
+           transform="rotate(-90)"
+           id="text303"
+           y="50.735657"
+           x="-14.164389"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             id="tspan301"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             y="50.735657"
+             x="-14.164389"
+             sodipodi:role="line">dich nicht</tspan></text>
+        <text
+           transform="rotate(-90)"
+           id="text307"
+           y="59.421917"
+           x="-39.899826"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             id="tspan305"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             y="59.421917"
+             x="-39.899826"
+             sodipodi:role="line">Schiffe</tspan></text>
+        <text
+           transform="rotate(-90)"
+           id="text311"
+           y="60.557816"
+           x="-12.076934"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             id="tspan309"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             y="60.557816"
+             x="-12.076934"
+             sodipodi:role="line">Poker</tspan></text>
+        <text
+           transform="rotate(-90)"
+           id="text315"
+           y="62.166798"
+           x="-41.776081"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             id="tspan313"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             y="62.166798"
+             x="-41.776081"
+             sodipodi:role="line">versenken</tspan></text>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath83">
+      <g
+         id="use85"
+         inkscape:label="Clip">
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path319"
+           d="m 32.505952,48.5279 27.939581,2.527712"
+           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0"
+           id="path321"
+           d="M 60.445533,51.055612 32.505952,53.488831 V 48.5279"
+           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath28-3-7">
+      <use
+         x="0"
+         y="0"
+         xlink:href="#g24-5"
+         id="use30-6-9"
+         width="100%"
+         height="100%" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath83-2">
+      <use
+         x="0"
+         y="0"
+         xlink:href="#g79"
+         id="use85-0"
+         width="100%"
+         height="100%" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath28-2">
+      <use
+         x="0"
+         y="0"
+         xlink:href="#g24"
+         id="use30-3"
+         width="100%"
+         height="100%" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="419.48399"
+     inkscape:cy="829.98452"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="2560"
+     inkscape:window-height="1410"
+     inkscape:window-x="0"
+     inkscape:window-y="1110"
+     inkscape:window-maximized="0">
+    <sodipodi:guide
+       position="78.309972,245.96801"
+       orientation="1,0"
+       id="guide18"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="42.900297,245.96801"
+       orientation="0,1"
+       id="guide20"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="94.680231,222.9696"
+       orientation="0,1"
+       id="guide133"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g26"
+       clip-path="url(#clipPath28-2)"
+       transform="rotate(180,47.259913,29.077394)">
+      <g
+         inkscape:label="Clip"
+         id="g24">
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path14"
+           d="m 32.505952,48.5279 48.853422,2.504094"
+           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path16"
+           d="M 81.359374,51.031994 32.505952,53.488831 V 48.5279"
+           style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+    </g>
+    <g
+       id="g26-7"
+       clip-path="url(#clipPath28-3-7)"
+       transform="rotate(90,43.349123,13.874382)">
+      <g
+         inkscape:label="Clip"
+         id="g24-5">
+        <g
+           id="g81"
+           clip-path="url(#clipPath83-2)"
+           transform="translate(8.0180859)">
+          <g
+             inkscape:label="Clip"
+             id="g79">
+            <path
+               style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+               d="m 32.505952,48.5279 27.939581,2.527712"
+               id="path14-3"
+               inkscape:connector-curvature="0"
+               sodipodi:nodetypes="cc" />
+            <path
+               style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+               d="M 60.445533,51.055612 32.505952,53.488831 V 48.5279"
+               id="path16-5"
+               inkscape:connector-curvature="0"
+               sodipodi:nodetypes="ccc" />
+          </g>
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="-42.415668"
+           y="49.250141"
+           id="text89"
+           transform="rotate(-90)"><tspan
+             sodipodi:role="line"
+             x="-42.415668"
+             y="49.250141"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             id="tspan111">Tic-Tac-Toe</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="-18.150183"
+           y="47.506546"
+           id="text89-6"
+           transform="rotate(-90)"><tspan
+             sodipodi:role="line"
+             x="-18.150183"
+             y="47.506546"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             id="tspan135">Mensch ärgere</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="18.136993"
+           y="62.963818"
+           id="text141"
+           transform="rotate(-90)"><tspan
+             sodipodi:role="line"
+             id="tspan139"
+             x="18.136993"
+             y="72.327583"
+             style="stroke-width:0.26458332" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="-14.164389"
+           y="50.735657"
+           id="text89-6-9"
+           transform="rotate(-90)"><tspan
+             sodipodi:role="line"
+             x="-14.164389"
+             y="50.735657"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             id="tspan135-1">dich nicht</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="-39.899826"
+           y="59.421917"
+           id="text89-6-2"
+           transform="rotate(-90)"><tspan
+             sodipodi:role="line"
+             x="-39.899826"
+             y="59.421917"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             id="tspan135-7">Schiffe</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="-12.076934"
+           y="60.557816"
+           id="text89-6-0"
+           transform="rotate(-90)"><tspan
+             sodipodi:role="line"
+             x="-12.076934"
+             y="60.557816"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             id="tspan135-9">Poker</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="-41.776081"
+           y="62.166798"
+           id="text89-6-3"
+           transform="rotate(-90)"><tspan
+             sodipodi:role="line"
+             x="-41.776081"
+             y="62.166798"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+             id="tspan135-6">versenken</tspan></text>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.881275"
+       y="4.0888467"
+       id="text89-6-06"><tspan
+         sodipodi:role="line"
+         x="52.881275"
+         y="4.0888467"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52777767px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light,  Bold';stroke-width:0.26458332"
+         id="tspan135-2">Zufall</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-30.375519"
+       y="3.3873818"
+       id="text89-6-6"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         x="-30.375519"
+         y="3.3873818"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52777767px;line-height:1;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light,  Bold';stroke-width:0.26458332"
+         id="tspan135-18">Information</tspan></text>
+  </g>
+</svg>
