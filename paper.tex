@@ -64,6 +64,10 @@
 \rofoot[\pagemark]{\pagemark}
 \lefoot[\pagemark]{\pagemark}
 
+\makeatletter
+  \newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
 \renewcommand{\maketitlehookd}{%
   \vspace{\baselineskip}
   \begin{abstract}
@@ -73,17 +77,25 @@
 }
 
 \newcommand\e[1]{\begin{em}#1\end{em}}
+
 \newcommand\q[1]{\glqq #1\grqq}
+
 \newcommand\sq[1]{\glq #1\grq}
+
 \newcommand\qq[1]{\glqq\e{#1}\grqq}
+
 \newcommand\fnm[1]{\footnotemark[#1]\addtocounter{footnote}{1}}
-\newcommand\g[3]{%
+
+\newcommand\g[4]{%
   \begin{figure}[!ht]
+  \label{fig:#2}
   \centering
-  \includegraphics[width=#3\textwidth]{#1}
-  \caption{#2}
+  \includegraphics[width=#4\textwidth]{#1}
+  \caption{#3}
   \end{figure}}
+
 \newcommand\todo[1]{\colorbox{yellow}{#1}}
+
 
 \title{Spielbäume}
 \def\titlehead{Spielbäume}
@@ -93,11 +105,16 @@
 \begin{document}
 \maketitle
 
+
+
 \section{Einführung}
 \todo{Motivation. Überblick Aufbau Text.}
 
+
+
 \section{Spielbäume}
 Um im Folgenden mit Spielbäumen arbeiten zu können, führen wir das Konzept zunächst formal ein und definieren dazu unter anderem den Begriff des \e{Spiels}, der \e{Konfiguration} und des \e{Spielbaums}.
+
 
 \subsection{Definition}
 
@@ -107,9 +124,9 @@ Alle folgenden Betrachtungen nehmen wir aus der Perspektive eines gewinnorientie
 
 Ein \textbf{Spiel} $S = (R,k_0,F)$ ist nun durch Regeln, in Form einer endlichen Menge von legalen Spielzügen $R$, eine Anfangskonfiguration $k_0 \in K$ und eine Reihe möglicher Endkonfigurationen $F \subset K$ gegeben, mit $K$, der Menge aller \e{zulässigen} Konfigurationen. Eine \textbf{Konfiguration} $k \in K$ repräsentiert dabei einen möglichen Zustand des Spieles, bestehend aus einer Beschreibung wiederum der Zustände aller relevanten Spielelemente (bspw. die Position der Zeichen auf dem Tic-Tac-Toe-Feld) inklussive des Spielers, der als nächster an der Reihe ist (bei uns entweder \textsc{Max} oder \textsc{Min}).
 
-In Abgrenzung zur Menge der \e{legalen} Spielzüge können wir uns beliebige andere Spielzüge vorstellen, die zwar möglich, allerdings in dem betrachteten Spiel nicht erlaubt sind. Analog dazu sind über $K$ hinaus weitere Konfigurationen denkbar, die allerdings nicht zulässig sind, d.h. in einem regelkonformen Spiel niemals auftreten können. Durch Anwenden eines legalen Spielzuges auf eine Konfiguration gelangen wir zu einer neuen Konfiguration. Ein legaler Spielzug kann also als eine Funktionen $R:K \to K$ verstanden werden. Seien $u,v \in K$ Konfigurationen und $r \in R$ ein legaler Spielzug, mit $v = r(u)$, dann heißt $v$ \textbf{Kindkonfiguration} von $u$ (bezüglich $r$) und $u$ \textbf{Elternkonfiguration} von $v$ (bezüglich $r$). 
+In Abgrenzung zur Menge der \e{legalen} Spielzüge können wir uns beliebige andere Spielzüge vorstellen, die zwar möglich, allerdings in dem betrachteten Spiel nicht erlaubt sind. Analog dazu sind über $K$ hinaus weitere Konfigurationen denkbar, die allerdings nicht zulässig sind, d.h. in einem regelkonformen Spiel niemals auftreten können. Durch Anwenden eines legalen Spielzuges auf eine Konfiguration gelangen wir zu einer neuen Konfiguration. Dieser Zusammenhang wird in \ref{fig:venn} veranschaulicht. Ein legaler Spielzug kann also als eine Funktionen $R:K \to K$ verstanden werden. Seien $u,v \in K$ Konfigurationen und $r \in R$ ein legaler Spielzug, mit $v = r(u)$, dann heißt $v$ \textbf{Kindkonfiguration} von $u$ (bezüglich $r$) und $u$ \textbf{Elternkonfiguration} von $v$ (bezüglich $r$). 
 
-\g{img/spielzuege.pdf}{\textsc{Venn}--Diagramm Spielzüge und Konfigurationen}{0.8}
+\g{img/spielzuege.pdf}{venn}{\textsc{Venn}--Diagramm Spielzüge und Konfigurationen}{.7}
 
 Wenn das Anwenden eines Spielzuges zu einer neuen Konfiguration führt, also $u \neq v$ gilt, dann heißt $r$ \textbf{anwendbar} auf u.\footnote{Das bedeutet nicht notwendigerweise, dass sich die Konfiguration der Spielelemente verändert. Zwei Spielkonfigurationen können sich auch darin unterscheiden, welcher Spieler an der Reihe ist.} Gibt es mehrere auf eine Konfiguration $k \in K$ anwendbare Spielzüge, erhalten wir eine \textbf{Menge von Kindkonfigurationen} $N(k) \subset K$ mit $N(k) = \{r(k) \mid r \in R,~r \textrm{ anwendbar auf } k\}$. Auf eine Endkonfiguration $k_f \in F$ sind keine Spielzüge anwendbar, da das Spiel mit Erreichen einer dieser Konfigurationen als beendet gilt: $N(k_f) = \emptyset$.
 
@@ -129,8 +146,7 @@ Ein \textbf{Spielgraph} ist ein gerichteter Graph $G(V,E)$ mit:
 
 Als zusätzliche Vereinfachung schließen wir aus, eine über $R$ aus $k_0$ generierte Konfiguration durch erneutes Anwenden legaler Spielzüge wieder erreichen zu können. Wir gelangen also im weiteren Spielverlauf nie zu einer Situation, die bereits aufgetreten ist.\footnote{Diese Einschränkung schließt viele Spiele wie bspw. Schach von der folgenden Betrachtung aus, da dort durch legale Spielzüge Konfigurationen reproduziert werden können. Viele der Aussagen lassen sich dennoch auch auf diese Art Spiele übertragen.} Daraus folg unmittelbar, dass $G$ zyklenfrei ist.
 
-Damit ist der Graphen $G$ insbesondere ein Baum\footnote{Wir benutzen also im Folgenden---abweichend der Terminologie der Hauptquelle\cite{K:2016}---, mit den hier getroffenen Annahmen, \q{Spielgraph} synonym zu \q{Spielbaum}. Davon abzugrenzen ist der Begriff \q{Suchbaum}. Während der \e{Spielbaum} ein theoretisches Modell von großer (Speicher-)Komplexität ist, wird der \e{Suchbaum} zur Laufzeit generiert und bildet kein vollständiges Spiel ab.}, mit $k_0$ als Wurzel und $F$ als Blätter. So kann über den Baum entlang legaler Spielzüge traversiert werden und bspw. ein kompletter Spielverlauf mit $n$ Zügen als Pfad $(k_0, k_1, \dots, k_n \in F)$ subsequenter Kindkonfigurationen dargestellt werden.
-
+Damit ist der Graphen $G$ insbesondere ein Baum\footnote{\label{suchbaum}Wir benutzen also im Folgenden---abweichend der Terminologie der Hauptquelle\cite{K:2016}---, mit den hier getroffenen Annahmen, \q{Spielgraph} synonym zu \q{Spielbaum}. Davon abzugrenzen ist der Begriff \q{Suchbaum}. Während der \e{Spielbaum} ein theoretisches Modell von großer (Speicher-)Komplexität ist, wird der \e{Suchbaum} zur Laufzeit generiert und bildet kein vollständiges Spiel ab.}, mit $k_0$ als Wurzel und $F$ als Blätter. So kann über den Baum entlang legaler Spielzüge traversiert werden und bspw. ein kompletter Spielverlauf mit $n$ Zügen als Pfad $(k_0, k_1, \dots, k_n \in F)$ subsequenter Kindkonfigurationen dargestellt werden.
 
 
 \subsection{Am Beispiel Tic-Tac-Toe}
@@ -139,13 +155,12 @@ Um obige Definitionen zu veranschaulichen, wenden wir sie nun auf das Spiel Tic-
 
 Ziel jedes Spielers ist es, drei der eigenen Zeichen nebeneinander zu setzen, d.h. in einer Reihe, Spalte oder Diagonale, und gleichzeitig zu verhindern, dass der Gegner seine Zeichen in dieser Weise setzen kann. Das Spiel endet entweder, wenn einer der beiden Spieler gewinnt, sobald er dieses Ziel erreicht, oder wenn kein Zug mehr möglich ist, da alle neun Felder belegt sind. Das Spiel geht in diesem Fall unentschieden aus.
 
-\g{tic.pdf}{Ein Tic-Tac-Toe-Spielbaum der Tiefe 2, bei dem die Anzahl der Konfigurationen bereits durch Ausnutzung von Symetrien optimiert wurde.}{0.9}
-
-\todo{nötig: Anwendung der Definition?}
+\g{tic.pdf}{tictactoe}{Ein Tic-Tac-Toe-Spielbaum der Tiefe 2, bei dem die Anzahl der Konfigurationen bereits durch Ausnutzung von Symetrien optimiert wurde.}{.9}
 
 \section{Zugplanung}
 
-Es stellt sich nun die Frage, wie sich aus den bekannten möglichen Zügen, die sich aus einer Spielsituation ergeben, der beste Zug auswählen lässt. Eine Möglchkeit für \textsc{Max} ist es, seine Züge so zu wählen, dass sein Vorteil maximiert wird, wenn er am Zug ist sowie jenen Zug von \textsc{Min} zu antizipieren, der ihm den größten Nachteil bringen wird, d.h. seinen Vorteil minimiert, da angenommen wird, dass \textsc{Min} genauso handelt\footnote{In Anlehnung an \cite{R:2012} tragen \textsc{Max} und \textsc{Min} auch genau aus diesem Grund ihre Namen: ist \textsc{Max} an der Reihe, wird der Nutzen \textit{maximiert}; ist es \textsc{Min}, wird er \textit{minimiert}; stets aus der Sicht von \textsc{Max}.}. Dieses Vorgehen führt zum Minmax-Verfahren, das und eine dessen Optimierungen, das Alpha-Beta-Pruning, wir im Folgenden genauer betrachten. 
+Es stellt sich nun die Frage, wie sich aus den bekannten möglichen Zügen, die sich aus einer Spielsituation ergeben, der beste Zug auswählen lässt. Eine Möglchkeit für \textsc{Max} ist es, seine Züge so zu wählen, dass sein Vorteil maximiert wird, wenn er am Zug ist sowie jenen Zug von \textsc{Min} zu antizipieren, der ihm den größten Nachteil bringen wird, d.h. seinen Vorteil minimiert, da angenommen wird, dass \textsc{Min} genauso handelt\footnote{In Anlehnung an \cite{R:2012} tragen \textsc{Max} und \textsc{Min} auch genau aus diesem Grund ihre Namen: ist \textsc{Max} an der Reihe, wird der Nutzen \textit{maximiert}; ist es \textsc{Min}, wird er \textit{minimiert}; stets aus der Sicht von \textsc{Max}.}. Dieses Vorgehen führt zum Minmax-Verfahren, das wir im Folgenden genauer betrachten. Auch werden wir einige dessen Optimierungen kennenlernen, um unvollständige Echtzeitentscheidungen treffen zu können.
+
 
 \subsection{Minmax-Verfahren}
 
@@ -165,23 +180,46 @@ Jedem Knoten $u$ im Spielbaum wird nun ein \textbf{Minmax-Wert} $minmax(u) \in \
 
 Der rekursive Abstieg im Baum endet mit dem ersten Fall des Erreichens einer Endkonfiguration, damit, dass die Gewinnfunktion angewendet wird. Je nach dem in welcher Ebene (Min oder Max) des Baumes wir uns befinden wird beim folgenden Aufstieg entsprechend das Minimum bzw. Maximum der Kinder nach oben weitergegeben.
 
-Schließlich wählt \textsc{Max} den Zug mit dem größten Minmax-Wert, bzw. den Zug der zu genau dem Kindknoten führt, der vom Minmax-Algorithmus mit dem gleichen Minmax-Wert, wie der des aktuellen Knotens, annotiert wurde.
+Schließlich wählt \textsc{Max} den Zug mit dem größten Minmax-Wert, bzw. den Zug der zu genau dem Kindknoten führt, der vom Minmax-Algorithmus mit dem gleichen Minmax-Wert, wie der des aktuellen Knotens, annotiert wurde. (Vgl. \ref{fig:minmax})
 
-\g{img/tic_minmax_2.pdf}{Ein Ausschnitts eines hypothetischen Spielbaumes an dem das Prinzip des Minmax-Verfahrens nachfollzogen werden kann: eine Gewinnfunktion bewertet Endkonfigurationen mit $1$ bei Gewinn, $-1$ bei Niederlage und $0$ bei Untenschieden; die Minmax-Werte werden entsprechend des Algorithmus' bis zur Wurzel propagiert; \textsc{Max} wählt schließlich den ersten Zug mit dem Kreuz in der Mitte, da der Minmax-Wert hier maximal ist.}{0.4}
+\g{img/tic_minmax_2.pdf}{minmax}{Ein Ausschnitts eines hypothetischen Spielbaumes an dem das Prinzip des Minmax-Verfahrens nachfollzogen werden kann: eine Gewinnfunktion bewertet Endkonfigurationen mit $1$ bei Gewinn, $-1$ bei Niederlage und $0$ bei Untenschieden; die Minmax-Werte werden entsprechend des Algorithmus' bis zur Wurzel propagiert; \textsc{Max} wählt schließlich den ersten Zug mit dem Kreuz in der Mitte, da der Minmax-Wert hier maximal ist.}{.4}
+
+Würde wir tatsächlich den gesamten Spielbaum mit diesem Verfahren durchsuchen, ergibt sich mit der maximalen Tiefe $m$ des Baumes und einem Verzweigungsgrad $b$ eine Zeitkomplexität von $\mathcal{O}(b^m)$ sowie eine Speicherkomplexität von $\mathcal{O}(bm)$ bzw. nur $\mathcal{O}(m)$, wenn lediglich der aktuelle Pfad im speicher gehalten wird. Da also, ohne Optimierungen, der Baum vollständig durchlaufen werden müsste und da schon bei sehr einfachen Spielen wie Tic-Tac-Toe mit wenigen Freiheiten und einer überschaubaren Zuganzahl (maximal neun) die Anzahl der möglichen Konfigurationen zu groß wird, um in annehmbarer Zeit Züge zu berechnen\footnote{Der Tic-Tac-Toe-Spielbaum hat ohne Optimierung $9! = 362880$ Knoten, obwohl es \q{nur} $5478$ verschiedene Konfigurationen gibt, die sich allerdings in insgesamt $255168$ möglichen Spielerläufen wiederholen. (Ein Spiel kann auch schon mit weniger als 9 Zügen beendet werden.) Unter Ausnutzung von Symetrien erhalten wir $765$ Konfigurationen und $31896$ Spielverläufe.}, kann das Verfahren so nicht angewendet werden, vor allem nicht in wesentlich komplexeren und längeren Spielen, wie Schach.
+
+
+\subsection{Optimierung mittels Heuristik}
+Damit nicht mehr der gesamte (und potenziell sehr tiefe) Teil-Baum der Kindkonfigurationen rekursiv bis zu den Blättern durchsucht werden muss, um die Minmax-Bewertung eines Knotens $k$ weiter oben im Baum zu erhalten, führen wir nun eine \textbf{Heuristik} ein. Diese ermöglicht es, auch nicht-Endkonfigurationen einen \textit{geschätzten} Nutzen zuzuordnen, basierend auf Merkmalen der Konfiguration. Der Spielbaum muss dann nur noch in einer festen Suchtiefe $t$ analysiert werden.\footnote{Bisher haben wir so lange Knoten expandiert, d.h. deren Kinder analysiert, bis eine Endkonfiguration erreicht war (im Fall des Spielbaumes, da nur eine Gewinnfunktion zur Verfügung stand). Da mit der Heuristik nun jede Konfiguration bewertet werden kann ist dies nicht mehr nötig, es stellt sich allerdings die Frage, nach einem guten \textbf{Expansionskriterium}, d.h. wann es sinnvoll ist, einen Knoten noch weiter zu expandieren. Wir arbeiten hier weiter stillschweigend mit dem Kriterium einer festen Suchtiefe $t$, allerdings lassen sich weitere Expansionskriterien finden, die zu besseren Entscheidungen führen können. Die Suchtiefe kann auch über den Spielverlauf hinweg variiert werden.} Den Baum, den wir ausgehend von einer belibigen Konfiguration des Spielbaumes in der Tiefe $t$ zur Laufzeit effizient aufbauen nennen wir \textbf{Suchbaum} (siehe dazu auch \footnoteref{suchbaum}).
+
+Diese Heuristik $h(k)$ muss (1) die gleiche Ordnung wie die Gewinnfunktion $g(k)$ erzeugen, d.h. ebenso einen Gewinn besser als ein Untenschieden und dieses besser als eine Niederlage werten. Sie muss (2) effizient sein, sonst ist die Optimierung nicht sinnvoll, und muss (3) möglichst genau sein, d.h. Werte für nicht-Endkonfigurationen schätzen, die möglichst nah am tatsächlichen Nutzen liegen.
+
+Eine Heuristik für Tic-Tac-Toe könnte bspw. mit $h_1(k) = A_X(k) - A_O(k)$ definiert werden, wobei $A_{X}$ bzw. $A_{O}$ jeweils die Summe an möglichen Horizontalen, Vertikalen und Diagonalen bezeichnet, die mit drei der entsprechenden Zeichen (\q{X} oder \q{O}) verfollständig werden könnten. (Siehe \ref{fig:heuristic})
+
+\begin{figure}[!ht]
+  \label{fig:heuristic}
+  \centering
+  \includegraphics[width=.8\textwidth]{minmax_heuristik.pdf}
+  \\ \vspace{\baselineskip}
+  \includegraphics[width=.8\textwidth]{minmax_heuristik_2.pdf}
+  \caption{Wenden wir die Heuristik $h_1$ auf den Tic-Tac-Toe-Spielbaum aus \ref{fig:tictactoe} an---bzw. genauer: bauen wir einen Suchbaum mit $t = 2$ auf, ausgehend von der Konfiguration des leeren Feldes, und bewerten dessen Blätter mit $h_1$ erhalten wir diese Werte (a), die im gewohnten Modus zur Wurzel propagiert werden (b). Der Zug den \textsc{Max} wählt ist hervorgehoben.}
+\end{figure}
+
 
 \subsection{Alpha-Beta-Pruning}
 
+
+
 \section{Zusammenfassung}
+
 \todo{Schlussfolgerung. Ausblick. Anwendbarkeit, Zufallsspiele}
 
-\begin{thebibliography}{99}
 
-\bibitem{K:2016} Sascha Klüppelholz.
-\newblock Entwurfs- und Analysemethoden für Algorithmen -- Skript zur Vorlesung, SS 2016
-\bibitem{R:2012} Russel, Norvig.
-\newblock Künstliche Intelligenz -- Ein moderner Ansatz, 3., aktualisierte Auflage, 2012
- 
+\begin{thebibliography}{99}
+  \bibitem{K:2016} Sascha Klüppelholz.
+  \newblock Entwurfs- und Analysemethoden für Algorithmen -- Skript zur Vorlesung, SS 2016
+  \bibitem{R:2012} Russel, Norvig.
+  \newblock Künstliche Intelligenz -- Ein moderner Ansatz, 3., aktualisierte Auflage, 2012 
 \end{thebibliography}
+
 
 \vspace{4\baselineskip}
 Diese Ausarbeitung und zugehörige Präsentation sind auch auf github zu finden: \\\url{https://github.com/foobar0112/tic}.
