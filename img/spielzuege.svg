@@ -14,7 +14,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
    sodipodi:docname="spielzuege.svg">
   <defs
      id="defs2">
@@ -83,15 +83,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8284271"
-     inkscape:cx="160.36831"
-     inkscape:cy="994.93797"
+     inkscape:cx="369.24965"
+     inkscape:cy="938.36943"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="2560"
      inkscape:window-height="1410"
      inkscape:window-x="0"
-     inkscape:window-y="1110"
+     inkscape:window-y="30"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -112,67 +112,57 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="25.684601"
-       y="15.257828"
+       x="28.67802"
+       y="24.425173"
        id="text3704"><tspan
          sodipodi:role="line"
          id="tspan3702"
-         x="25.684601"
-         y="15.257828"
+         x="28.67802"
+         y="24.425173"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">alle denkbaren Spielzüge</tspan></text>
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       style="fill:none;stroke:#000000;stroke-width:0.24335591"
        id="path3708"
-       cx="53.868172"
-       cy="43.294395"
-       rx="40.357697"
-       ry="22.370459" />
+       cx="52.74564"
+       cy="48.065155"
+       rx="40.368309"
+       ry="18.919931" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="30.285885"
-       y="31.485411"
+       x="28.882719"
+       y="40.185036"
        id="text3704-3"><tspan
          sodipodi:role="line"
          id="tspan3702-6"
-         x="30.285885"
-         y="31.485411"
+         x="28.882719"
+         y="40.185036"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">R = legale Spielzüge in S</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="76.483421"
-       y="75.103806"
-       id="text3704-7"><tspan
+       x="90.239876"
+       y="58.188763"
+       id="text3704-7"
+       transform="rotate(-11.795494)"><tspan
          sodipodi:role="line"
          id="tspan3702-5"
-         x="76.483421"
-         y="75.103806"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">induzieren</tspan></text>
+         x="90.239876"
+         y="58.188763"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222223px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">induzieren</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="31.795956"
-       y="47.093952"
-       id="text3704-35"><tspan
-         sodipodi:role="line"
-         id="tspan3702-62"
-         x="31.795956"
-         y="47.093952"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">anwendbar auf fixes k ∈ K</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="116.93466"
-       y="56.488472"
+       x="127.131"
+       y="47.975937"
        id="text3704-9"
        inkscape:transform-center-x="5.2117558"
        inkscape:transform-center-y="-31.40417"><tspan
          sodipodi:role="line"
          id="tspan3702-1"
-         x="116.93466"
-         y="56.488472"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">zulässige Konfigurationen K</tspan></text>
+         x="127.131"
+         y="47.975937"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">K = zulässige Konfigurationen</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -183,53 +173,81 @@
          id="tspan3752"
          x="107.99025"
          y="61.584969"
-         style="stroke-width:0.26458332"></tspan></text>
+         style="stroke-width:0.26458332" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="110.69591"
-       y="39.657509"
+       x="126.13072"
+       y="29.554722"
        id="text3704-9-2"
        inkscape:transform-center-x="5.2117558"
        inkscape:transform-center-y="-31.40417"><tspan
          sodipodi:role="line"
          id="tspan3702-1-7"
-         x="110.69591"
-         y="39.657509"
+         x="126.13072"
+         y="29.554722"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332">alle denkbaren Konfigurationen</tspan></text>
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       style="fill:none;stroke:#000000;stroke-width:0.29250565"
        id="path3708-0"
-       ry="12.561666"
-       rx="32.473248"
-       cy="47.169807"
-       cx="56.607689" />
+       ry="10.115552"
+       rx="32.459286"
+       cy="54.466263"
+       cx="52.117561" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.26458332"
+       style="fill:none;stroke:#000000;stroke-width:0.23587613"
        id="path3791"
-       cx="52.184372"
-       cy="35.744034"
-       rx="47.600704"
-       ry="34.531227" />
+       cx="52.277916"
+       cy="42.198593"
+       rx="47.615059"
+       ry="27.436211" />
     <ellipse
        style="fill:none;stroke:#000000;stroke-width:0.26458332"
        id="path3708-0-9"
        ry="12.561666"
        rx="32.473251"
-       cy="55.655621"
-       cx="144.33891" />
+       cy="46.488277"
+       cx="153.69334" />
     <ellipse
        style="fill:none;stroke:#000000;stroke-width:0.26458332"
        id="path3708-3"
-       cx="141.06485"
-       cy="50.13649"
+       cx="153.4127"
+       cy="39.098259"
        rx="40.3577"
        ry="22.370459" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:0.265, 0.26500000000000001;stroke-dashoffset:0;marker-end:url(#Arrow2Lend)"
-       d="m 59.681286,62.577896 c 3.781339,13.981233 50.539524,6.704812 60.242554,-0.187088"
+       style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.265, 0.265;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 80.354584,42.091686 c 13.135773,6.310598 38.659396,-14.903929 51.449396,0.561267"
        id="path3823"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
+    <g
+       id="g3877"
+       transform="translate(-3.8353177,3.8353178)">
+      <text
+         id="text3704-35"
+         y="49.806736"
+         x="34.882919"
+         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan3841"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+           y="49.806736"
+           x="34.882919"
+           sodipodi:role="line">R<tspan
+   id="tspan3833"
+   style="font-size:64.99999762%;baseline-shift:sub">k</tspan> = anwendbar</tspan></text>
+      <text
+         id="text3704-35-3"
+         y="54.141273"
+         x="43.871685"
+         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan3841-6"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Univers LT 45 Light';-inkscape-font-specification:'Univers LT 45 Light, ';stroke-width:0.26458332"
+           y="54.141273"
+           x="43.871685"
+           sodipodi:role="line">auf festes k ∈ K</tspan></text>
+    </g>
   </g>
 </svg>
