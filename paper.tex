@@ -159,7 +159,7 @@ Ziel jedes Spielers ist es, drei der eigenen Zeichen nebeneinander zu setzen, d.
 
 \section{Zugplanung}
 
-Es stellt sich nun die Frage, wie sich aus den bekannten möglichen Zügen, die sich aus einer Spielsituation ergeben, der beste Zug auswählen lässt. Eine Möglchkeit für \textsc{Max} ist es, seine Züge so zu wählen, dass sein Vorteil maximiert wird, wenn er am Zug ist sowie jenen Zug von \textsc{Min} zu antizipieren, der ihm den größten Nachteil bringen wird, d.h. seinen Vorteil minimiert, da angenommen wird, dass \textsc{Min} genauso handelt\footnote{In Anlehnung an \cite{R:2012} tragen \textsc{Max} und \textsc{Min} auch genau aus diesem Grund ihre Namen: ist \textsc{Max} an der Reihe, wird der Nutzen \textit{maximiert}; ist es \textsc{Min}, wird er \textit{minimiert}; stets aus der Sicht von \textsc{Max}.}. Dieses Vorgehen führt zum Minmax-Verfahren, das wir im Folgenden genauer betrachten. Auch werden wir einige dessen Optimierungen kennenlernen, um unvollständige Echtzeitentscheidungen treffen zu können.
+Es stellt sich nun die Frage, wie sich aus den bekannten möglichen Zügen, die sich aus einer Spielsituation ergeben, der beste Zug auswählen lässt. Eine Möglchkeit für \textsc{Max} ist es, seine Züge so zu wählen, dass sein Vorteil maximiert wird, wenn er am Zug ist sowie jenen Zug von \textsc{Min} zu antizipieren, der ihm den größten Nachteil bringen wird, d.h. seinen Vorteil minimiert, da angenommen wird, dass \textsc{Min} genauso handelt\footnote{In Anlehnung an \cite{R:2012} tragen \textsc{Max} und \textsc{Min} auch genau aus diesem Grund ihre Namen: ist \textsc{Max} an der Reihe, wird der Nutzen \textit{maximiert}; ist es \textsc{Min}, wird er \textit{minimiert}; stets aus der Sicht von \textsc{Max}.}. Dieses Vorgehen führt zum \textbf{Minmax-Verfahren}\footnote{erstmals 1912 erwähnt (\textsc{Zermelo})}, das wir im Folgenden genauer betrachten. Auch werden wir einige dessen Optimierungen kennenlernen, um unvollständige Echtzeitentscheidungen treffen zu können.
 
 
 \subsection{Minmax-Verfahren}
@@ -206,6 +206,16 @@ Eine Heuristik für Tic-Tac-Toe könnte bspw. mit $h_1(k) = A_X(k) - A_O(k)$ def
 
 \subsection{Alpha-Beta-Pruning}
 
+Um die Komplexität des Minmax-Algorithmus weiter zu verringern, nehmen wir eine weitere Optimierung vor: das \textbf{Alpha-Beta-Pruning}\footnote{erstmals 1956 vorgestellt (\textsc{McCarthy}), auch \q{Alpha-Beta-Kürzung}, \q{$\alpha$-$\beta$-Pruning}, \q{$\alpha$-$\beta$-Cut} oder \q{$\alpha$-$\beta$-Suche}}. Dieses erlaub es, das Untersuchen von Teilbäume abzukürzen, ohne dabei gute Züge auszuschließen, indem Knoten nicht weiter expandiert werden, auch, wenn das Expansionskriterium erfüllt ist. 
+
+Dazu führen wir für jeden Knoten $k$ zusätzlich einen \textbf{Alpha-} und \textbf{Beta-Wert} $\alpha_k$ und $\beta_k$ ein. $\alpha_k$ ist dabei die \textit{untere} Schranke des Minmax-Wertes $minmax(k)$ für Max-Knoten und speichert also die bisher \textit{größte} Bewertung im Pfad von der Wurzel des aktuellen Suchbaumes zum Knoten $k$. Analog wird in $\beta_k$ die \textit{obere} Schranke für Min-Knoten gespeichert, d.h. die bisher \textit{kleinste} Bewertung im Pfad zu $k$.
+
+Die Alpha- und Beta-Werte werden mit $\alpha = -\infty$, $\beta = +\infty$ initialisiert und nach jeder untersuchten Konfiguration aktualisiert, so dass $\alpha$ an einem Max-Knoten stets maximiert und $\beta$ an einem Min-Knoten stets minimiert wird.
+
+Wir können nun auf Basis der $\alpha$ und $\beta$ Werte \textbf{Kürzungen (Cut)} vornehmen, d.h. Teilbäume aus dem Suchbaum löschen, sobald sich die beiden Schranken überschneiden: An einem Max-Knoten $u$---es wird hier stets der größte Minmax-Wert unter den Kindknoten gesucht--- führen wir den s.g. \textbf{$\alpha$-Cut} durch, sobald $\exists \beta_v : \beta_v \leq \alpha_u$ ($v \in N(u)$). Analog dazu wird der \textbf{$\beta$-Cut} an einem Min-Knoten durchgeführt, wenn $\exists \alpha_v : \alpha_v \geq \beta_u$ ($v \in N(u)$).
+
+
+\todo{Beispiel, Grafik, Komplexität}
 
 
 \section{Zusammenfassung}
